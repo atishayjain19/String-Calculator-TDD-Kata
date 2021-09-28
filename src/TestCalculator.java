@@ -23,4 +23,9 @@ public class TestCalculator {
 	{
 	    assertEquals(calculator.Add("1,2"), 3);
 	}	
+	
+	public void UnknownNumbersDelimeterSum()
+    {
+        assertEquals(calculator.Add("1,2,3"),6);
+    }
 }
