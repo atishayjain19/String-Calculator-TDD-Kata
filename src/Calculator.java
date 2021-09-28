@@ -1,7 +1,7 @@
 
 public class Calculator {
-	
-	private final String delimeter = ",";
+	//allow to add new line between numbers
+	private final String delimeter = ",|\n";
     public int Add(String input){
     
   
