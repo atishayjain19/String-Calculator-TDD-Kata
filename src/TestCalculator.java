@@ -28,4 +28,17 @@ public class TestCalculator {
     {
         assertEquals(calculator.Add("1,2,3"),6);
     }
+	
+	//new line in input.
+	public void newline()
+	{
+		 assertEquals(calculator.Add("1\n2,3"),6);
+		 
+	}
+	
+	public void SupportDiffDelimitersSum()
+	{
+		assertEquals(calculator.Add("//;\n1;2;3"), 6);
+	}
+	
 }

@@ -1,22 +1,38 @@
 
 public class Calculator {
 	//allow to add new line between numbers
-	private final String delimeter = ",|\n";
+	public String delimeter = ",|\n";
     public int Add(String input){
-    
-  
-    String[] numbers = input.split(delimeter);   
-        if(isEmpty(input)){
+    	String input1=input;
+    	if (input1.substring(0, 2).equals("//"))
+        {
+    		delimeter=delimeter+"|"+findDelimeter(input1);
+        }
+    	String[] numbers = input.split(delimeter);
+
+    	if(isEmpty(input)){
             return 0;
         }
-        if(input.length()==1){
+    	else if(input.length()==1){
             return stringToint(input);
         }
-        
-        else{
+      	else{
             return getsum(numbers);
         }
     }
+    //This function to find differnt Delimeter
+    private String findDelimeter(String input1)
+    {
+  		int i=2;
+		while(input1.charAt(i)!='\n')
+		{
+			i++;
+		}
+		return (input1.substring(2, i+1));
+		
+    }
+    
+    
     private boolean isEmpty(String input){
         return input.isEmpty();
     }
