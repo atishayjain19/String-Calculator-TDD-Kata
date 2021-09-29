@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
 	//allow to add new line between numbers
 	public String delimeter = ",|\n";
-    public int Add(String input){
+    public int Add(String input) throws Exception{
     	String input1=input;
     	if (input1.substring(0, 2).equals("//"))
         {
@@ -41,8 +43,24 @@ public class Calculator {
         return Integer.parseInt(input);
     }
     // Allow the Add method to handle an unknown amount of numbers
-    private int getsum(String[] numbers)
+    private int getsum(String[] numbers) throws Exception
     {
+    	//this loop check if negative integers there in array.
+    	for(String num:numbers){
+    		 List<Integer> negative = new ArrayList<Integer>();
+    		 if(stringToint(num)<0){
+                 negative.add(stringToint(num));
+             }
+            if(stringToint(num)<0){
+            	
+            	//prints negative values.
+            	for (int val:negative)
+            	{
+            		System.out.print(val);
+            	} 
+                throw new Exception("negatives not allowed");
+            }
+        }
         int sum=0;
         for(int i=0;i<numbers.length;i++)
         {
@@ -50,4 +68,7 @@ public class Calculator {
         }
         return sum;
     }
+    
+ 
+    
 }

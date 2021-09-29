@@ -11,34 +11,40 @@ public class TestCalculator {
     public void init(){
         calculator = new Calculator();
     }
-	public void EmptyStringReturnZero() {
+	public void EmptyStringReturnZero() throws Exception{
 		assertEquals(calculator.Add(""), 0);
 	}
 	
-	public void SingleValueIsReplied(){
+	public void SingleValueIsReplied() throws Exception{
 	    assertEquals(calculator.Add("1"), 1);
 	}
 	
-	public void TwoNumbersCommaDelReturnSum()
+	public void TwoNumbersCommaDelReturnSum() throws Exception
 	{
 	    assertEquals(calculator.Add("1,2"), 3);
 	}	
 	
-	public void UnknownNumbersDelimeterSum()
+	public void UnknownNumbersDelimeterSum() throws Exception
     {
         assertEquals(calculator.Add("1,2,3"),6);
     }
 	
 	//new line in input.
-	public void newline()
+	public void newline() throws Exception
 	{
 		 assertEquals(calculator.Add("1\n2,3"),6);
 		 
 	}
 	
-	public void SupportDiffDelimitersSum()
+	public void SupportDiffDelimitersSum() throws Exception
 	{
 		assertEquals(calculator.Add("//;\n1;2;3"), 6);
 	}
+	
+	// negative input through exception;
+    @Test(expectedExceptions= Exception.class)
+    public void negativeInputReturnsException() throws Exception{
+        calculator.Add("-1");
+    }
 	
 }
