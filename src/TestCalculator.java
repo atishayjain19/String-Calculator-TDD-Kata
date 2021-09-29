@@ -35,7 +35,7 @@ public class TestCalculator {
 		 assertEquals(calculator.Add("1\n2,3"),6);
 		 
 	}
-	
+	//
 	public void SupportDiffDelimitersSum() throws Exception
 	{
 		assertEquals(calculator.Add("//;\n1;2;3"), 6);
